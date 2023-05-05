@@ -4,17 +4,6 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Models\ShopifyGraphQLAdminApi;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 Route::get('/', function () {
     die('Shopify Laravel App');
 });
@@ -22,7 +11,7 @@ Route::get('/', function () {
 Route::get('/customer_update', function () {
 
     $api = new App\Models\ShopifyGraphQLAdminApi(config('shopify.access_token'),
-                                                    config('shopify.shop_name'), 
+                                                    config('shopify.shop_name'),
                                                     '2022-07');
 
     $query = 'mutation customerUpdate {
@@ -55,7 +44,7 @@ Route::get('/customer_update', function () {
 Route::get('/customer_create', function () {
 
     $api = new App\Models\ShopifyGraphQLAdminApi(config('shopify.access_token'),
-                                                    config('shopify.shop_name'), 
+                                                    config('shopify.shop_name'),
                                                     '2022-07');
 
     $query = 'mutation customerCreate {
@@ -87,7 +76,7 @@ Route::get('/customer_create', function () {
 Route::get('/customer_get', function () {
 
     $api = new App\Models\ShopifyGraphQLAdminApi(config('shopify.access_token'),
-                                                    config('shopify.shop_name'), 
+                                                    config('shopify.shop_name'),
                                                     '2023-01');
 
     $query = '
@@ -135,7 +124,7 @@ Route::get('/customer_get', function () {
 Route::get('/product_create', function () {
 
     $api = new App\Models\ShopifyGraphQLAdminApi(config('shopify.access_token'),
-                                                    config('shopify.shop_name'), 
+                                                    config('shopify.shop_name'),
                                                     '2022-07');
 
     $query = 'mutation productCreate {
@@ -181,15 +170,15 @@ Route::get('/product_create', function () {
 Route::get('/product_create2', function () {
 
     $api = new App\Models\ShopifyGraphQLAdminApi(config('shopify.access_token'),
-                                                    config('shopify.shop_name'), 
+                                                    config('shopify.shop_name'),
                                                     'unstable');
 
     $query = 'mutation productCreate {
         productCreate(input: {
-            title: "Girls Pink Floral Occasion Dress (4-13yrs) #2",
-            descriptionHtml: "Now that we can enjoy special gatherings with family and friends again, make sure your youngster is prepped for them with this stunning occasion dress. Perfect for weddings, birthday parties and so much more, it\'s styled with glitched florals that simply scream summer excellence, together with a pretty pink base, an elasticated bodice, a sophisticated collar and two practical button fastenings to the back of the neck.",
+            title: "A Test product",
+            descriptionHtml: "<strong>Test product</strong>",
             status: ACTIVE,
-            handle: "s2930078_c323/girls-pink-floral-occasion-dress-4-13yrs-pink",
+            handle: "",
             options: [
                 "color",
                 "size"
@@ -198,59 +187,11 @@ Route::get('/product_create2', function () {
             variants: [
                 {
                     options: [
-                        "Pink",
+                        "Blue",
                         "Age 6 Years"
                     ],
-                    sku: "S2930078_C323_636",
-                    title: "PINK GLITCHED OCCASION DRESS PINK",
-                    price: "10",
-                    taxable: false,
-                    inventoryManagement: SHOPIFY,
-                    inventoryQuantities: {
-                        availableQuantity: 0,
-                        locationId: "gid://shopify/Location/65693909014"
-                    },
-                    position: 3
-                },
-                {
-                    options: [
-                        "Pink",
-                        "Age 9 Years"
-                    ],
-                    sku: "S2930078_C323_639",
-                    title: "PINK GLITCHED OCCASION DRESS PINK",
-                    price: "12",
-                    taxable: false,
-                    inventoryManagement: SHOPIFY,
-                    inventoryQuantities: {
-                        availableQuantity: 0,
-                        locationId: "gid://shopify/Location/65693909014"
-                    },
-                    position: 6
-                },
-                {
-                    options: [
-                        "Pink",
-                        "Age 10 Years"
-                    ],
-                    sku: "S2930078_C323_640",
-                    title: "PINK GLITCHED OCCASION DRESS PINK",
-                    price: "12",
-                    taxable: false,
-                    inventoryManagement: SHOPIFY,
-                    inventoryQuantities: {
-                        availableQuantity: 0,
-                        locationId: "gid://shopify/Location/65693909014"
-                    },
-                    position: 7
-                },
-                {
-                    options: [
-                        "Pink",
-                        "Age 5 Years"
-                    ],
-                    sku: "S2930078_C323_635",
-                    title: "PINK GLITCHED OCCASION DRESS PINK",
+                    sku: "BC_6",
+                    title: "Blue coat",
                     price: "10",
                     taxable: false,
                     inventoryManagement: SHOPIFY,
@@ -262,44 +203,12 @@ Route::get('/product_create2', function () {
                 },
                 {
                     options: [
-                        "Pink",
-                        "Age 13 Years"
+                        "Blue",
+                        "Age 7 Years"
                     ],
-                    sku: "S2930078_C323_643",
-                    title: "PINK GLITCHED OCCASION DRESS PINK",
+                    sku: "BC_7",
+                    title: "Blue coat",
                     price: "12",
-                    taxable: false,
-                    inventoryManagement: SHOPIFY,
-                    inventoryQuantities: {
-                        availableQuantity: 0,
-                        locationId: "gid://shopify/Location/65693909014"
-                    },
-                    position: 10
-                },
-                {
-                    options: [
-                        "Pink",
-                        "Age 8 Years"
-                    ],
-                    sku: "S2930078_C323_638",
-                    title: "PINK GLITCHED OCCASION DRESS PINK",
-                    price: "12",
-                    taxable: false,
-                    inventoryManagement: SHOPIFY,
-                    inventoryQuantities: {
-                        availableQuantity: 0,
-                        locationId: "gid://shopify/Location/65693909014"
-                    },
-                    position: 5
-                },
-                {
-                    options: [
-                        "Pink",
-                        "Age 4 Years"
-                    ],
-                    sku: "S2930078_C323_634",
-                    title: "PINK GLITCHED OCCASION DRESS PINK",
-                    price: "10",
                     taxable: false,
                     inventoryManagement: SHOPIFY,
                     inventoryQuantities: {
@@ -308,73 +217,20 @@ Route::get('/product_create2', function () {
                     },
                     position: 1
                 },
-                {
-                    options: [
-                        "Pink",
-                        "Age 7 Years"
-                    ],
-                    sku: "S2930078_C323_637",
-                    title: "PINK GLITCHED OCCASION DRESS PINK",
-                    price: "12",
-                    taxable: false,
-                    inventoryManagement: SHOPIFY,
-                    inventoryQuantities: {
-                        availableQuantity: 0,
-                        locationId: "gid://shopify/Location/65693909014"
-                    },
-                    position: 4
-                },
-                {
-                    options: [
-                        "Pink",
-                        "Age 11 Years"
-                    ],
-                    sku: "S2930078_C323_641",
-                    title: "PINK GLITCHED OCCASION DRESS PINK",
-                    price: "12",
-                    taxable: false,
-                    inventoryManagement: SHOPIFY,
-                    inventoryQuantities: {
-                        availableQuantity: 0,
-                        locationId: "gid://shopify/Location/65693909014"
-                    },
-                    position: 8
-                },
-                {
-                    options: [
-                        "Pink",
-                        "Age 12 Years"
-                    ],
-                    sku: "S2930078_C323_642",
-                    title: "PINK GLITCHED OCCASION DRESS PINK",
-                    price: "12",
-                    taxable: false,
-                    inventoryManagement: SHOPIFY,
-                    inventoryQuantities: {
-                        availableQuantity: 0,
-                        locationId: "gid://shopify/Location/65693909014"
-                    },
-                    position: 9
-                }
             ],
             images: [
                 {
-                    src: "https://squirrelimages.s3.eu-west-1.amazonaws.com/S2930078_C323_Alt1.jpg",
-                    altText: "Girls Pink Floral Occasion Dress (4-13yrs)"
+                    src: "https://images.unsplash.com/photo-1519966776149-927c0270b1d4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGJsdWUlMjBjb2F0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
+                    altText: "Blue coat 6 years"
                 },
                 {
-                    src: "https://squirrelimages.s3.eu-west-1.amazonaws.com/S2930078_C323_Alt2.jpg",
-                    altText: "Girls Pink Floral Occasion Dress (4-13yrs)"
+                    src: "https://plus.unsplash.com/premium_photo-1663133930245-a7f24d9fef6c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGJsdWUlMjBjb2F0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
+                    altText: "Blue coat 7 years"
                 }
             ],
             tags: [
-                "Girls",
-                "Dresses",
-                "Dresses",
-                "Girls Occasionwear",
-                "C",
-                "Girls Younger (3-13yrs)",
-                "Girls Younger Clothing"
+                "Coats",
+                "Boys",
             ],
             published: true,
             id: "gid://shopify/Product/8067613262127"
@@ -445,9 +301,9 @@ Route::get('/import_order', function () {
             ],
         ],
     ];
-    
+
     $api = new App\Models\ShopifyRestAdminApi(config('shopify.access_token'),
-                                                    config('shopify.shop_name'), 
+                                                    config('shopify.shop_name'),
                                                     '2022-07');
 
     $response = $api->post('/orders.json', $orderPayload)->getBody();
@@ -480,7 +336,7 @@ Route::get('/order_create', function () {
     ';
 
     $api = new App\Models\ShopifyGraphQLAdminApi(config('shopify.access_token'),
-                                                    config('shopify.shop_name'), 
+                                                    config('shopify.shop_name'),
                                                     '2022-10');
 
     $response = $api->request($query)->getBody();
@@ -492,7 +348,7 @@ Route::get('/order_create', function () {
 Route::get('/order_refund_2', function () {
 
     $query = 'mutation refundCreate {
-        refundCreate(input: {  
+        refundCreate(input: {
             orderId: "gid://shopify/Order/5234377031992",
             notify: true,
             refundLineItems: [
@@ -532,7 +388,7 @@ Route::get('/order_refund_2', function () {
     ';
 
     $api = new App\Models\ShopifyGraphQLAdminApi(config('shopify.access_token'),
-                                                    config('shopify.shop_name'), 
+                                                    config('shopify.shop_name'),
                                                     '2022-10');
 
     $response = $api->request($query)->getBody();
@@ -544,7 +400,7 @@ Route::get('/order_refund_2', function () {
 Route::get('/order_refund', function () {
 
     $query = 'mutation refundCreate {
-        refundCreate(input: {  
+        refundCreate(input: {
             orderId: "gid://shopify/Order/5234377031992",
             notify: true,
             refundLineItems: [
@@ -584,7 +440,7 @@ Route::get('/order_refund', function () {
     ';
 
     $api = new App\Models\ShopifyGraphQLAdminApi(config('shopify.access_token'),
-                                                    config('shopify.shop_name'), 
+                                                    config('shopify.shop_name'),
                                                     '2022-10');
 
     $response = $api->request($query)->getBody();
@@ -596,7 +452,7 @@ Route::get('/order_refund', function () {
 Route::get('/bulk_product_import', function (Request $request) {
 
     $api = new App\Models\ShopifyGraphQLAdminApi(config('shopify.access_token'),
-    config('shopify.shop_name'), 
+    config('shopify.shop_name'),
     '2022-07');
 
     $contents = Storage::disk('local')->get('bulk_product_file.json');
@@ -610,7 +466,7 @@ Route::get('/bulk_product_import', function (Request $request) {
 Route::get('/gql_bulk', function (Request $request) {
 
     $api = new App\Models\ShopifyGraphQLAdminApi(config('shopify.access_token'),
-                                                    config('shopify.shop_name'), 
+                                                    config('shopify.shop_name'),
                                                     '2022-10');
 
     $query = 'query {
@@ -630,7 +486,7 @@ Route::get('/gql_bulk', function (Request $request) {
 Route::get('/gql_testing', function (Request $request) {
 
     $api = new App\Models\ShopifyGraphQLAdminApi(config('shopify.access_token'),
-                                                    config('shopify.shop_name'), 
+                                                    config('shopify.shop_name'),
                                                     '2022-10');
 
     $query = 'query {
