@@ -1,4 +1,4 @@
-# PHP Laravel 9 Shopify App
+# PHP Laravel 9 Shopify App Playground
 
 Boilerplate code for a [Shopify Custom App](https://help.shopify.com/en/manual/apps/app-types#custom-apps) therefore this App doesnt contain any OAuth flow.
 
